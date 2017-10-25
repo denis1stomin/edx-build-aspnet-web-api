@@ -19,6 +19,9 @@ namespace WorldWebServer.DataAccess
             var optionsBuilder = new DbContextOptionsBuilder<WorldSqliteDbContext>();
             optionsBuilder.UseSqlite(connectionStirng);
             var dbContext = new WorldSqliteDbContext(optionsBuilder.Options);
+
+            dbContext.Database.EnsureCreated();
+
             return dbContext;
         }
     }
